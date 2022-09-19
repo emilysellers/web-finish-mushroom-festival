@@ -61,18 +61,23 @@ addFriendForm.addEventListener('submit', (e) => {
     const formData = new FormData(addFriendForm);
 
     // > create a new friend, with a "name" property that
-    // is populated from `formData.get('name')` and a
-    // "satisfied" property with an initial value of 0
-
+    const friend = {
+        // is populated from `formData.get('name')` and a
+        name: formData.get('name'),
+        // "satisfied" property with an initial value of 0
+        satisfied: 0,
+    };
     // > add the new friend to the friends array
-
+    friends.push(friend);
     // > set the message state to let the user know
     // they invited a new friend to the festival, include the friend's
     // name in the message
+    message = `${friend.name} has joined the festival.`;
 
     addFriendForm.reset();
 
     // > call the display functions that need to re-display
+    displayFriends();
 });
 
 sayGoodbyeButton.addEventListener('click', () => {
