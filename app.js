@@ -12,7 +12,7 @@ const friendsSection = document.getElementById('friends-section');
 
 /* State */
 let message = '';
-let mushrooms = [{ type: 'porcini' }, { type: 'chanterelle' }, { type: 'morel' }];
+let mushrooms = [];
 
 let friends = [
     { name: 'Wilbur', satisfied: 0 },
@@ -78,6 +78,7 @@ addFriendForm.addEventListener('submit', (e) => {
 
     // > call the display functions that need to re-display
     displayFriends();
+    displayMessage();
 });
 
 sayGoodbyeButton.addEventListener('click', () => {
@@ -112,10 +113,14 @@ function displayFriends() {
 
     for (const friend of friends) {
         const friendEl = renderFriend(friend);
+        friendsSection.append(friendEl);
 
         friendEl.addEventListener('click', () => {
             // > handle the three possible outcomes:
             // 1. No mushrooms, set a message to go hunt for more
+            if (mushrooms.length === 0) {
+                message = `There are no mushrooms - time to go mushroom hunting!`;
+            } // else {
             // 2. Friend is already fully satisfied (3), set a message to pick another friend
             // 3. Feed friend mushroom:
             // a. "pop" a mushroom off the mushrooms array
