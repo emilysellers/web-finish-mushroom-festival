@@ -17,7 +17,7 @@ let mushrooms = [];
 let friends = [
     { name: 'Wilbur', satisfied: 0 },
     { name: 'Miss Piggy', satisfied: 0 },
-    { name: 'Pumbaa', satisfied: 0 },
+    { name: 'Pumbaa', satisfied: 3 },
 ];
 
 // static types and probabilities
@@ -113,21 +113,23 @@ function displayFriends() {
 
     for (const friend of friends) {
         const friendEl = renderFriend(friend);
-        friendsSection.append(friendEl);
 
         friendEl.addEventListener('click', () => {
             // > handle the three possible outcomes:
             // 1. No mushrooms, set a message to go hunt for more
             if (mushrooms.length === 0) {
                 message = `There are no mushrooms - time to go mushroom hunting!`;
-            } // else {
-            // 2. Friend is already fully satisfied (3), set a message to pick another friend
-            // 3. Feed friend mushroom:
-            // a. "pop" a mushroom off the mushrooms array
-            // b. increase friend.satisfied by 1
-            // c. set a message that the friend enjoyed the mushroom,
-            //    include the friend name and mushroom type in the message
-
+            } else {
+                // 2. Friend is already fully satisfied (3), set a message to pick another friend
+                if (friend.satisfied === 3) {
+                    message = `This friend is already fully satisfied. Pick another friend to feed!`;
+                }
+                // 3. Feed friend mushroom:
+                // a. "pop" a mushroom off the mushrooms array
+                // b. increase friend.satisfied by 1
+                // c. set a message that the friend enjoyed the mushroom,
+                //    include the friend name and mushroom type in the message
+            }
             displayMessage();
             displayMushrooms();
             displayFriends();
