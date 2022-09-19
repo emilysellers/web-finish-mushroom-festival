@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- title and favicon -->
+    <title>Mushroom Festival</title>
+    <link rel="icon" type="image/x-icon" href="assets/alchemy-favicon.png" />
+
+    <!-- js -->
+    <script type="module" src="app.js"></script>
+
+    <!-- fonts -->
+    <!-- see https://fonts.google.com/ -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <!-- add link for page specific css -->
+    <link rel="stylesheet" href="styles/mushroom-festival.css" />
+
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="assets/mushrooms/chanterelle.png" alt="logo">
+        <h1>Mushroom Festival</h1>
+    </header>
+
+    <main>
+        <section id="message-section"></section>
+
+        <section class="forest image-section">
+            <button id="hunt-mushrooms-button">Go Mushroom Hunting!</button>
+        </section>
+
+        <section class="table image-section">
+            <div id="mushroom-container"></div>
+        </section>
+
+        <section class="add-friends-section">
+            <form id="add-friend-form">
+                <input required name="name">
+                <button>Add Friend</button>
+            </form>
+            <button id="say-goodbye-button">Say goodbye to full friends</button>
+        </section>
+
+        <section id="friends-section"></section>
+    </main>
+
+</body>
+
+</html>

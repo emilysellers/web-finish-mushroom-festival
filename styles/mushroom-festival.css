@@ -1,0 +1,151 @@
+body {
+    background-image: url('../assets/background-2.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left 0 bottom 300px;
+    background-color: #5c8928;
+}
+
+main {
+    padding: 10px;
+    padding-bottom: 0;
+    display: grid;
+    grid-template-rows: 10% 50% 10% 30%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        'message   message'
+        'forest     mushrooms'
+        'add-friend add-friend'
+        'friends    friends';
+}
+
+@media (min-width: 800px) {
+    body {
+        background-position: bottom;
+        background-size: cover;
+    }
+
+    main {
+        grid-template-rows: 10% 15% 75%;
+        grid-template-columns: repeat(3, 33.3%);
+        grid-template-areas:
+            'messages   messages    messages'
+            'forest     mushrooms   add-friend'
+            'forest     mushrooms   friends';
+    }
+}
+
+#message-section {
+    grid-area: messages;
+    padding: 0 30px;
+    background: rgba(181, 240, 236, 0.664);
+    display: grid;
+    align-items: center;
+    font-weight: 600;
+}
+
+.image-section {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 98%;
+}
+
+.forest {
+    grid-area: forest;
+    background-image: url(../assets/forest.png);
+
+    display: grid;
+    place-items: center;
+}
+
+.table {
+    grid-area: mushrooms;
+    background-image: url(../assets/table.png);
+    padding: 0 10% 50% 10%;
+
+    display: grid;
+    align-items: end;
+}
+
+#mushroom-container {
+    align-self: end;
+
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+#mushroom-container img {
+    width: 20%;
+    height: 5vw;
+    object-fit: contain;
+}
+
+@media (max-width: 800px) {
+    #mushroom-container img {
+        width: 33%;
+        height: 10vw;
+    }
+}
+
+.add-friends-section {
+    grid-area: add-friend;
+
+    display: grid;
+    place-items: center;
+}
+
+.add-friends-section input {
+    height: 38px;
+    margin-right: 10px;
+}
+
+#friends-section {
+    grid-area: friends;
+
+    padding-bottom: 5%;
+
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row-reverse;
+    align-items: center;
+    align-content: flex-start;
+
+    gap: 5px;
+}
+
+.friend {
+    position: relative;
+    width: 120px;
+    height: 100px;
+
+    background-color: skyblue;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.friend:hover {
+    background-color: lightblue;
+}
+
+.friend .name {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.friend .emoji {
+    font-size: 3rem;
+}
+
+.friend .bye {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: 0;
+    border: 0;
+    padding: 0;
+    box-shadow: 0;
+    font-size: 2rem;
+}
