@@ -17,7 +17,7 @@ let mushrooms = [];
 let friends = [
     { name: 'Wilbur', satisfied: 0 },
     { name: 'Miss Piggy', satisfied: 0 },
-    { name: 'Pumbaa', satisfied: 3 },
+    { name: 'Pumbaa', satisfied: 0 },
 ];
 
 // static types and probabilities
@@ -85,7 +85,7 @@ sayGoodbyeButton.addEventListener('click', () => {
     const stillHungry = [];
     for (const friend of friends) {
         // > if the friend is not fully satisfied, push
-        if (friend.satisfaction < 3) {
+        if (friend.satisfied < 3) {
             // them into the stillHungry array
             stillHungry.push(friend);
         }
